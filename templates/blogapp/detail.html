@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+	<h2 class="ts center aligned header">
+		{{ post.title }}
+	</h2>
+	<div class="ts center aligned tiny header">{{ post.category.name }} ● {{ post.created_time }} ● {{ post.author }}
+	</div>
+	<div class="ts basic segment">
+		{{ post.content|safe }}
+	</div>
+{% endblock %}

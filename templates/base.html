@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+	</head>
+	<body>
+		<div class="ts stackable grid">
+			<div class="three wide column"></div>
+			<div class="ten wide column">
+				<div class="ts stackable borderless flatted large menu">
+					<div class="header item">WoodMan</div>
+					<div class="right menu">
+						<a class="item">首頁</a>
+						<a class="item">關於</a>
+						<div class="ts borderless right icon input">
+							<input type="text" placeholder="搜尋">
+						    <i class="search icon"></i>
+						</div>
+					</div>
+				</div>
+				<div class="ts stackable grid">
+					<div class="twelve wide column">
+						{% block content %}
+						{% endblock %}
+					</div>
+					<div class="four wide column">
+				
+					</div>
+				</div>				
+			</div>
+			<div class="three wide column"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Django Blog{% endblock %}
+{% block content %}
+	{% for post in post_list %}
+		<h2 class="ts center aligned header">
+			<a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+		</h2>
+		<div class="ts very narrow container">
+			{{ post.excerpt }}
+		</div>
+		<div class="ts center aligned tiny header">{{ post.category.name }} ● {{ post.created_time }}
+		</div>
+		<div class="ts divider"></div>
+	{% empty %}
+		<div class="ts slate">
+		    <span class="header">目前還沒有文章QwQ</span>
+		</div>
+	{% endfor %}
+{% endblock %}
