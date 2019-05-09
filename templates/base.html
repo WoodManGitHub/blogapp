@@ -44,6 +44,20 @@
 								<p>目前沒貼文</p>
 							{% endfor %}
 						</div>
+						<h3 class="ts left aligned header">Date</h3>
+						<div class="ts list">
+							{% archives as date_list %}
+							{% for date in date_list %}
+								<a class="item" href="#">
+									<i class="calendar icon"></i>
+									<div class="content">
+										<div class="header">{{ date.year }} 年 {{ date.month }} 月</div>
+									</div>
+								</a>
+							{% empty %}
+								<p>目前沒貼文</p>
+							{% endfor %}
+						</div>
 					</div>
 				</div>				
 			</div>
