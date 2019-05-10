@@ -4,16 +4,16 @@ from django.utils.html import strip_tags
 import markdown
 
 def index(request):
-	post_list = Post.objects.all().order_by('-created_time')
+	post_list = Post.objects.all()
 	return render(request, 'blogapp/index.html', context={'post_list': post_list})
 
 def archives(request, year, month):
-	post_list = Post.objects.filter(created_time__year=year, created_time__month=month).order_by('-created_time')
+	post_list = Post.objects.filter(created_time__year=year, created_time__month=month)
 	return render(request, 'blogapp/index.html', context={'post_list': post_list})
 
 def category(request, pk):
 	cate = get_object_or_404(Category, pk=pk)
-	post_list = Post.objects.filter(category=cate).order_by('-created_time')
+	post_list = Post.objects.filter(category=cate)
 	return render(request, 'blogapp/index.html', context={'post_list': post_list})
 
 def detail(request, pk):
