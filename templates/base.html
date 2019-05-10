@@ -58,6 +58,20 @@
 								<p>目前沒貼文</p>
 							{% endfor %}
 						</div>
+						<h3 class="ts left aligned header">分類</h3>
+						<div class="ts list">
+							{% get_categories as category_list %}
+							{% for category in category_list %}
+								<a class="item" href="#">
+									<i class="time icon"></i>
+									<div class="content">
+										<div class="header">{{ category.name }}</div>
+									</div>
+								</a>
+							{% empty %}
+								<p>目前沒分類</p>
+							{% endfor %}
+						</div>
 					</div>
 				</div>				
 			</div>
