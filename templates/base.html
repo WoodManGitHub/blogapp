@@ -62,7 +62,7 @@
 						<div class="ts list">
 							{% get_categories as category_list %}
 							{% for category in category_list %}
-								<a class="item" href="#">
+								<a class="item" href="{% url 'blog:category' category.pk  %}">
 									<i class="time icon"></i>
 									<div class="content">
 										<div class="header">{{ category.name }}</div>
