@@ -15,7 +15,7 @@
 				<div class="ts stackable borderless flatted large menu">
 					<div class="header item">WoodMan</div>
 					<div class="right menu">
-						<a class="item">首頁</a>
+						<a class="item" href="/">首頁</a>
 						<a class="item">關於</a>
 						<div class="ts borderless right icon input">
 							<input type="text" placeholder="搜尋">
@@ -48,7 +48,7 @@
 						<div class="ts list">
 							{% archives as date_list %}
 							{% for date in date_list %}
-								<a class="item" href="#">
+								<a class="item" href="{% url 'blog:archives' date.year date.month%}">
 									<i class="calendar icon"></i>
 									<div class="content">
 										<div class="header">{{ date.year }} 年 {{ date.month }} 月</div>
