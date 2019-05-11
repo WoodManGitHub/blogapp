@@ -25,6 +25,11 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    viewnum = models.PositiveIntegerField(default=0)
+
+    def increase_views(self):
+        self.viewnum += 1
+        self.save(update_fields=['viewnum'])
     
     def save(self, *args, **kwargs):
         if not self.excerpt:
