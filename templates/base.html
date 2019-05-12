@@ -1,78 +1,78 @@
 {% load blogtags %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>{% block title %}{% endblock %}</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
-	</head>
-	<body>
-		<div class="ts stackable grid">
-			<div class="three wide column"></div>
-			<div class="ten wide column">
-				<div class="ts stackable borderless flatted large menu">
-					<div class="header item">WoodMan</div>
-					<div class="right menu">
-						<a class="item" href="/">首頁</a>
-						<a class="item">關於</a>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.js"></script>
+    </head>
+    <body>
+        <div class="ts stackable grid">
+            <div class="three wide column"></div>
+            <div class="ten wide column">
+                <div class="ts stackable borderless flatted large menu">
+                    <div class="header item">WoodMan</div>
+                    <div class="right menu">
+                        <a class="item" href="/">首頁</a>
+                        <a class="item">關於</a>
                         <a class="item" href="{% url 'rss' %}">RSS</a>
-						<div class="ts borderless right icon input">
-							<input type="text" placeholder="搜尋">
-						    <i class="search icon"></i>
-						</div>
-					</div>
-				</div>
-				<div class="ts stackable grid">
-					<div class="eleven wide column">
-						{% block content %}
-						{% endblock %}
-					</div>
-					<div class="one wide column"></div>
-					<div class="four wide column">
-						<h3 class="ts left aligned header">New Post</h3>
-						<div class="ts list">
-							{% get_recent_posts as recent_post_list %}
-							{% for post in recent_post_list %}
-								<a class="item" href="{{ post.get_absolute_url }}">
-									<i class="angle right icon"></i>
-									<div class="content">
-										<div class="header">{{ post.title }}</div>
-									</div>
-								</a>
-							{% empty %}
-								<p>目前沒貼文</p>
-							{% endfor %}
-						</div>
-						<h3 class="ts left aligned header">Date</h3>
-						<div class="ts list">
-							{% archives as date_list %}
-							{% for date in date_list %}
-								<a class="item" href="{% url 'blog:archives' date.year date.month%}">
-									<i class="calendar icon"></i>
-									<div class="content">
-										<div class="header">{{ date.year }} 年 {{ date.month }} 月</div>
-									</div>
-								</a>
-							{% empty %}
-								<p>目前沒貼文</p>
-							{% endfor %}
-						</div>
-						<h3 class="ts left aligned header">分類</h3>
-						<div class="ts list">
-							{% get_categories as category_list %}
-							{% for category in category_list %}
-								<a class="item" href="{% url 'blog:category' category.pk  %}">
-									<i class="time icon"></i>
-									<div class="content">
+                        <div class="ts borderless right icon input">
+                            <input type="text" placeholder="搜尋">
+                            <i class="search icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts stackable grid">
+                    <div class="eleven wide column">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                    <div class="one wide column"></div>
+                    <div class="four wide column">
+                        <h3 class="ts left aligned header">New Post</h3>
+                        <div class="ts list">
+                            {% get_recent_posts as recent_post_list %}
+                            {% for post in recent_post_list %}
+                                <a class="item" href="{{ post.get_absolute_url }}">
+                                    <i class="angle right icon"></i>
+                                    <div class="content">
+                                        <div class="header">{{ post.title }}</div>
+                                    </div>
+                                </a>
+                            {% empty %}
+                                <p>目前沒貼文</p>
+                            {% endfor %}
+                        </div>
+                        <h3 class="ts left aligned header">Date</h3>
+                        <div class="ts list">
+                            {% archives as date_list %}
+                            {% for date in date_list %}
+                                <a class="item" href="{% url 'blog:archives' date.year date.month%}">
+                                    <i class="calendar icon"></i>
+                                    <div class="content">
+                                        <div class="header">{{ date.year }} 年 {{ date.month }} 月</div>
+                                    </div>
+                                </a>
+                            {% empty %}
+                                <p>目前沒貼文</p>
+                            {% endfor %}
+                        </div>
+                        <h3 class="ts left aligned header">分類</h3>
+                        <div class="ts list">
+                            {% get_categories as category_list %}
+                            {% for category in category_list %}
+                                <a class="item" href="{% url 'blog:category' category.pk  %}">
+                                    <i class="time icon"></i>
+                                    <div class="content">
                                         <div class="header">{{ category.name }}</div>
                                     </div>
-								</a>
-							{% empty %}
-								<p>目前沒分類</p>
-							{% endfor %}
-						</div>
+                                </a>
+                            {% empty %}
+                                <p>目前沒分類</p>
+                            {% endfor %}
+                        </div>
                         <h3 class="ts left aligned header">Tags</h3>
                         {% get_tags as tag_list %}
                         {% for tag in tag_list %}
@@ -81,10 +81,10 @@
                             <p>目前沒標籤</p>
                         {% endfor %}
                         </div>
-					</div>
-				</div>				
-			</div>
-			<div class="three wide column"></div>
-		</div>
-	</body>
+                    </div>
+                </div>				
+            </div>
+            <div class="three wide column"></div>
+        </div>
+    </body>
 </html>
