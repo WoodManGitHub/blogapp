@@ -73,6 +73,14 @@
 								<p>目前沒分類</p>
 							{% endfor %}
 						</div>
+                        <h3 class="ts left aligned header">Tags</h3>
+                        {% get_tags as tag_list %}
+                        {% for tag in tag_list %}
+                            <div class="ts circular horizontal label">{{ tag.name }}</div>
+                        {% empty %}
+                            <p>目前沒標籤</p>
+                        {% endfor %}
+                        </div>
 					</div>
 				</div>				
 			</div>
